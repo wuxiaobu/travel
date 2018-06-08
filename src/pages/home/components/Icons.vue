@@ -16,40 +16,26 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: ['iconList'],
   data () {
     return {
       swiperOption: {
-        autoplay: 3000,
         pagination: '.swiper-pagination',
         paginationClickable: true
-      },
-      iconList: [{
-        id: '001',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        desc: '景点'
-      },
-      {
-        id: '002',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-        desc: '榜单'
-      },
-      {
-        id: '003',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-        desc: '单'
-      }]
+      }
     }
   },
   computed: {
     pages () {
       const pages = []
       this.iconList.forEach((item, index) => {
-        const page = Math.floor(index / 2)
+        const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
         }
         pages[page].push(item)
       })
+      console.log(this.iconList)
       return pages
     }
   }
@@ -59,7 +45,8 @@ export default {
 <style lang="stylus" scoped>
   .icons
     overflow: hidden
-    padding-bottom: 50%
+    padding-bottom: 2%
+    padding-top: .2rem
     .icon
       position: relative
       overflow: hidden
@@ -75,6 +62,7 @@ export default {
         bottom: .24rem
         box-sizing: border-box
         padding: .1rem
+        margin-bottom: .1rem
         .icon-img-content
           display: block
           margin: 0 auto

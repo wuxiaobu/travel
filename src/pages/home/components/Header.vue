@@ -2,12 +2,16 @@
   <div class="header">
     <div class="header-letf"><i class="fa fa-chevron-left"></i></div>
     <div class="header-input">输入城市/景点/游玩主题</div>
-    <div class="header-right">南京<i class="fa fa-caret-down"></i></div>
+    <router-link to='/city'>
+      <div class="header-right">{{this.city}}<i class="fa fa-caret-down"></i></div>
+    </router-link>
   </div>
 </template>
 <script>
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  props: ['city']
+
 }
 </script>
 
